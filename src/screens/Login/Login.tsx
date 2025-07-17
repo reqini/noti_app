@@ -87,7 +87,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <SafeAreaView style={[styles.container, { backgroundColor: '#f8f9fa' }]}> 
+    <SafeAreaView style={[styles.container]}> 
       <KeyboardAvoidingView
         behavior={Platform.OS === 'ios' ? 'padding' : 'height'}
         style={styles.keyboardView}
@@ -95,9 +95,9 @@ const Login: React.FC = () => {
         <ScrollView contentContainerStyle={styles.scrollContent} keyboardShouldPersistTaps="handled">
           <View style={styles.content}>
             <View style={styles.header}>
-              <Image source={require('../../../assets/logo.jpg')} style={{ width: 200, height: 120, marginBottom: 16, resizeMode: 'contain' }} />
-              <Text style={[styles.title, { color: '#007AFF' }]}>{t('welcome')}</Text>
-              <Text style={[styles.subtitle, { color: '#666' }] }>
+              <Image source={require('../../../assets/logo.jpg')} style={styles.logo} />
+              <Text style={[styles.title, styles.titleBlue]}>{t('welcome')}</Text>
+              <Text style={[styles.subtitle, styles.subtitleGray]}>
                 {isRegister ? t('register') + ' para comenzar' : t('login') + ' para continuar'}
               </Text>
             </View>
@@ -113,7 +113,7 @@ const Login: React.FC = () => {
               </View>
             ) : null}
 
-            <View style={[styles.form, { backgroundColor: '#fff', borderRadius: 12, padding: 16, shadowColor: '#000', shadowOpacity: 0.06, shadowRadius: 8, elevation: 2 }] }>
+            <View style={[styles.form, styles.formCard]}>
               {isRegister && (
                 <Input
                   placeholder={t('name')}
@@ -158,12 +158,12 @@ const Login: React.FC = () => {
                 title={isRegister ? t('register') : t('login')}
                 onPress={isRegister ? handleRegister : handleLogin}
                 loading={isLoading}
-                style={[styles.loginButton, { backgroundColor: '#007AFF' }]}
+                style={[styles.loginButton, styles.loginButtonBlue]}
               />
             </View>
 
             <TouchableOpacity
-              style={[styles.switchModeBtn, { backgroundColor: '#007AFF' }]}
+              style={[styles.switchModeBtn, styles.switchModeBtnBlue]}
               onPress={() => {
                 setIsRegister(!isRegister);
                 resetForm();

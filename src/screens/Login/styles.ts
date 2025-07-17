@@ -3,7 +3,7 @@ import { StyleSheet } from 'react-native';
 export const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#F5F5F4',
+    backgroundColor: '#fcfcfc',
   },
   keyboardView: {
     flex: 1,
@@ -80,5 +80,32 @@ export const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 16,
+  },
+  logo: {
+    width: 200,
+    height: 120,
+    marginBottom: 16,
+    resizeMode: 'contain',
+  },
+  titleBlue: {
+    color: '#007AFF',
+  },
+  subtitleGray: {
+    color: '#666',
+  },
+  formCard: {
+    backgroundColor: '#fff',
+    borderRadius: 12,
+    padding: 16,
+    shadowColor: '#000',
+    shadowOpacity: 0.06,
+    shadowRadius: 8,
+    elevation: 2,
+  },
+  loginButtonBlue: {
+    backgroundColor: '#007AFF',
+  },
+  switchModeBtnBlue: {
+    backgroundColor: '#007AFF',
   },
 }); 
