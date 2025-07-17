@@ -74,18 +74,18 @@ export const Profile: React.FC = () => {
   return (
     <View style={styles.container}>
       <View style={styles.header}>
-        <View style={{ flexDirection: 'row', alignItems: 'center', width: '100%' }}>
+        <View style={styles.headerRow}>
           {user?.avatar ? (
             <TouchableOpacity onPress={handlePickAvatar} style={{ position: 'relative' }}>
               <Image source={{ uri: user.avatar }} style={styles.profileAvatar} />
-              <View style={{ position: 'absolute', right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: 12, padding: 4 }}>
+              <View style={styles.avatarOverlay}>
                 <Ionicons name="pencil" size={18} color="#fff" />
               </View>
             </TouchableOpacity>
           ) : (
-            <TouchableOpacity onPress={handlePickAvatar} style={[styles.profileAvatar, { backgroundColor: '#eee', justifyContent: 'center', alignItems: 'center', position: 'relative' }] }>
-              <Text style={{ fontSize: 28, color: '#888', fontWeight: 'bold' }}>{getInitials(user?.name || '')}</Text>
-              <View style={{ position: 'absolute', right: 0, bottom: 0, backgroundColor: 'rgba(0,0,0,0.5)', borderRadius: 12, padding: 4 }}>
+            <TouchableOpacity onPress={handlePickAvatar} style={[styles.profileAvatar, styles.emptyAvatar]}>
+              <Text style={styles.initials}>{getInitials(user?.name || '')}</Text>
+              <View style={styles.avatarOverlay}>
                 <Ionicons name="pencil" size={18} color="#fff" />
               </View>
             </TouchableOpacity>
@@ -100,10 +100,10 @@ export const Profile: React.FC = () => {
       <ScrollView style={styles.content}>
         {/* Inputs editables para nombre y clave, ahora desplegable */}
         <View style={styles.section}>
-          <TouchableOpacity onPress={() => setSettingsExpanded(!settingsExpanded)} style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 16 }}>
+          <TouchableOpacity onPress={() => setSettingsExpanded(!settingsExpanded)} style={styles.sectionRow}>
             <Ionicons name="settings-outline" size={24} color="#666" style={{ marginRight: 8 }} />
             <Text style={styles.sectionTitle}>{t('settings')}</Text>
-            <Ionicons name={settingsExpanded ? 'chevron-up' : 'chevron-down'} size={20} color="#333" style={{ marginLeft: 8 }} />
+            <Ionicons name={settingsExpanded ? 'chevron-up' : 'chevron-down'} size={20} color="#333" style={styles.sectionIconRight} />
           </TouchableOpacity>
           {settingsExpanded && (
             <>
@@ -128,10 +128,10 @@ export const Profile: React.FC = () => {
         </View>
         {/* Favoritos al final, en una sola columna */}
         <View style={styles.section}>
-          <TouchableOpacity onPress={() => setFavoritesExpanded(!favoritesExpanded)} style={{ flexDirection: 'row', alignItems: 'center', marginBottom: 16 }}>
+          <TouchableOpacity onPress={() => setFavoritesExpanded(!favoritesExpanded)} style={styles.sectionRow}>
             <Ionicons name="heart" size={24} color="#ff4757" style={{ marginRight: 8 }} />
             <Text style={styles.sectionTitle}>{t('favorites')}</Text>
-            <Ionicons name={favoritesExpanded ? 'chevron-up' : 'chevron-down'} size={20} color="#333" style={{ marginLeft: 8 }} />
+            <Ionicons name={favoritesExpanded ? 'chevron-up' : 'chevron-down'} size={20} color="#333" style={styles.sectionIconRight} />
           </TouchableOpacity>
           {favoritesExpanded && (
             state.favorites.length > 0 ? (

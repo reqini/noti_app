@@ -132,4 +132,36 @@ export const styles = StyleSheet.create({
     fontWeight: 'bold',
     fontSize: 16,
   },
+  headerRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+  },
+  avatarOverlay: {
+    position: 'absolute',
+    right: 0,
+    bottom: 0,
+    backgroundColor: 'rgba(0,0,0,0.5)',
+    borderRadius: 12,
+    padding: 4,
+  },
+  emptyAvatar: {
+    backgroundColor: '#eee',
+    justifyContent: 'center',
+    alignItems: 'center',
+    position: 'relative',
+  },
+  initials: {
+    fontSize: 28,
+    color: '#888',
+    fontWeight: 'bold',
+  },
+  sectionRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    marginBottom: 16,
+  },
+  sectionIconRight: {
+    marginLeft: 8,
+  },
 }); 
