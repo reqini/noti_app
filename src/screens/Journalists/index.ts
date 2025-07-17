@@ -1,0 +1,1 @@
+export { Journalists } from './Journalists'; 
